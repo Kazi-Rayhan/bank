@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Bank {
+            constructor(owner, type) {
+                this.owner = owner;
+                this.type = type;
+                this.balance = 0;
+                this.currency = 'BDT';
+                this.account = Math.floor(Math.random() * (99999999 - 1000000)) + 1000000;
+                this.transactions = {
+                    credit : [],
+                    debit : []
+                };
+            }
+            deposit(amount) {
+                this.balance = this.balance + amount;
+                this.transactions.credit.push(amount)
+            }
+            withdraw(amount) {
+                this.balance = this.balance - amount;
+                this.transactions.debit.push(amount)
+            }
+        }
+
+        let mahfuz = new Bank('Mahfuzul Islam','Savings')
+        let rayhan = new Bank('Kazi Rayhan','Savings')
+        mahfuz.deposit(99);
+        mahfuz.deposit(99);
+        mahfuz.deposit(99);
+        mahfuz.deposit(99);
+        console.log('Mahfuz',mahfuz.balance);
+        console.log('Rayhan',rayhan.balance);
+
+    </script>
+
+
+</body>
+
+</html>
